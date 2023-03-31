@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
             $table->foreignId('department_id')->constrained('departments');
             $table->timestamps();
         });

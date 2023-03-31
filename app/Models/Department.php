@@ -9,9 +9,8 @@ class Department extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['id','code','name', 'description'];
     protected $keyType = 'string';
-    public $incrementing = false;
 
     public function employees()
     {
