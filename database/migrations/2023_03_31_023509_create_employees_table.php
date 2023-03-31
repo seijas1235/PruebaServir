@@ -9,18 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->date('birth_date');
+            $table->foreignId('department_id')->constrained('departments');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('employees');
     }
